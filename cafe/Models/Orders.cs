@@ -1,6 +1,6 @@
 ﻿namespace cafe.Models
 {
-    public class Order
+    public class Orders : EFModel
     {
         public int NumberOrder {  get; set; }
         public string OrderContains { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace cafe.Models
 {
-    public class Workers
+    public class Workers : EFModel
     {
         public string FullName { get; set; }
         public int age {  get; set; }
