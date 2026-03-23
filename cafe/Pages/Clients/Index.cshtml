@@ -1,0 +1,36 @@
+﻿@page
+@model cafe.Pages.Clients.IndexModel
+@{
+}
+
+<h1>Список клиентов</h1>
+
+<p>
+    <a asp-page="Create">Добавить нового клиента</a>
+</p>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Год</th>
+            <th>Количество</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Clients)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Year</td>
+                <td>@book.Copies</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@book.Id">Открыть</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
