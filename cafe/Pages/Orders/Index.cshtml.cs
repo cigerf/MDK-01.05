@@ -2,18 +2,18 @@ using cafe.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace cafe.Pages.Clients
+namespace cafe.Pages.Orders
 {
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;
         public IndexModel(ApplicationDbContext context) => _context = context;
 
-        public IList<cafe.Models.Clients> Clients { get; set; } = new List<cafe.Models.Clients>();
+        public IList<cafe.Models.Orders> Orders { get; set; } = new List<cafe.Models.Orders>();
 
         public async Task OnGetAsync()
         {
-            Clients = await _context.Clients.ToListAsync();
+            Orders = await _context.Orders.ToListAsync();
         }
     }
 }

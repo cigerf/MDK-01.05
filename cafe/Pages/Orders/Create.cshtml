@@ -1,0 +1,59 @@
+﻿@page
+@model cafe.Pages.Orders.CreateModel
+@{
+    ViewData["Title"] = "Создание заказа";
+}
+
+<h1>Новый заказ</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Order.Name" class="form-label">Название заказа</label>
+                <input asp-for="Order.Name" class="form-control" />
+                <span asp-validation-for="Order.Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Order.NumberOrder" class="form-label">Номер заказа</label>
+                <input asp-for="Order.NumberOrder" class="form-control" />
+                <span asp-validation-for="Order.NumberOrder" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Order.OrderContains" class="form-label">Состав заказа</label>
+                <textarea asp-for="Order.OrderContains" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Order.OrderContains" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Order.TotalAmount" class="form-label">Общая сумма</label>
+                <input asp-for="Order.TotalAmount" class="form-control" />
+                <span asp-validation-for="Order.TotalAmount" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Order.Status" class="form-label">Статус</label>
+                <select asp-for="Order.Status" class="form-control">
+                    <option value="Ожидает">Ожидает</option>
+                    <option value="В обработке">В обработке</option>
+                    <option value="Выполнен">Выполнен</option>
+                    <option value="Отменён">Отменён</option>
+                </select>
+                <span asp-validation-for="Order.Status" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Сохранить</button>
+                <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
