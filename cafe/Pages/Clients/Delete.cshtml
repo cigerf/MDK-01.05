@@ -4,30 +4,40 @@
     ViewData["Title"] = "Удалить клиента";
 }
 
-<h1>Удаление клиента</h1>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow border-danger">
+            <div class="card-header bg-danger text-white">
+                <h3 class="mb-0">⚠️ Удаление клиента</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <h5>Вы уверены, что хотите удалить этого клиента?</h5>
+                    <p class="mb-0">Это действие нельзя отменить.</p>
+                </div>
 
-<div class="alert alert-danger">
-    <h3>Вы уверены, что хотите удалить этого клиента?</h3>
-</div>
+                <dl class="row">
+                    <dt class="col-sm-4">NickName</dt>
+                    <dd class="col-sm-8">@Model.Client.NickName</dd>
 
-<div>
-    <dl class="row">
-        <dt class="col-sm-2">NickName</dt>
-        <dd class="col-sm-10">@Model.Client.NickName</dd>
+                    <dt class="col-sm-4">Полное имя</dt>
+                    <dd class="col-sm-8">@Model.Client.Fullname</dd>
 
-        <dt class="col-sm-2">Полное имя</dt>
-        <dd class="col-sm-10">@Model.Client.Fullname</dd>
+                    <dt class="col-sm-4">Email</dt>
+                    <dd class="col-sm-8">@Model.Client.Email</dd>
 
-        <dt class="col-sm-2">Бонусные баллы</dt>
-        <dd class="col-sm-10">@Model.Client.BonusPoint</dd>
+                    <dt class="col-sm-4">Бонусные баллы</dt>
+                    <dd class="col-sm-8">@Model.Client.BonusPoint</dd>
+                </dl>
 
-        <dt class="col-sm-2">Email</dt>
-        <dd class="col-sm-10">@Model.Client.Email</dd>
-    </dl>
-
-    <form method="post">
-        <input type="hidden" asp-for="Client.Id" />
-        <button type="submit" class="btn btn-danger">Удалить</button>
-        <a asp-page="./Index" class="btn btn-secondary">Отмена</a>
-    </form>
+                <form method="post">
+                    <input type="hidden" asp-for="Client.Id" />
+                    <div class="d-flex gap-2 justify-content-end">
+                        <button type="submit" class="btn btn-danger">🗑️ Удалить</button>
+                        <a asp-page="./Index" class="btn btn-secondary">❌ Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

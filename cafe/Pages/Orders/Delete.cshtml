@@ -1,36 +1,46 @@
 ﻿@page
 @model cafe.Pages.Orders.DeleteModel
 @{
-    ViewData["Title"] = "Удаление заказа";
+    ViewData["Title"] = "Удалить заказ";
 }
 
-<h1>Удаление заказа</h1>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow border-danger">
+            <div class="card-header bg-danger text-white">
+                <h3 class="mb-0">⚠️ Удаление заказа</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <h5>Вы уверены, что хотите удалить этот заказ?</h5>
+                    <p class="mb-0">Это действие нельзя отменить.</p>
+                </div>
 
-<div class="alert alert-danger">
-    <h3>Вы уверены, что хотите удалить этот заказ?</h3>
+                <dl class="row">
+                    <dt class="col-sm-4">Название</dt>
+                    <dd class="col-sm-8">@Model.Order.Name</dd>
+
+                    <dt class="col-sm-4">Номер заказа</dt>
+                    <dd class="col-sm-8">@Model.Order.NumberOrder</dd>
+
+                    <dt class="col-sm-4">Состав</dt>
+                    <dd class="col-sm-8">@Model.Order.OrderContains</dd>
+
+                    <dt class="col-sm-4">Сумма</dt>
+                    <dd class="col-sm-8">@Model.Order.TotalAmount.ToString("C")</dd>
+
+                    <dt class="col-sm-4">Статус</dt>
+                    <dd class="col-sm-8">@Model.Order.Status</dd>
+                </dl>
+
+                <form method="post">
+                    <input type="hidden" asp-for="Order.Id" />
+                    <div class="d-flex gap-2 justify-content-end">
+                        <button type="submit" class="btn btn-danger">🗑️ Удалить</button>
+                        <a asp-page="./Index" class="btn btn-secondary">❌ Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div>
-    <dl class="row">
-        <dt class="col-sm-2">Название заказа</dt>
-        <dd class="col-sm-10">@Model.Order.Name</dd>
-
-        <dt class="col-sm-2">Номер заказа</dt>
-        <dd class="col-sm-10">@Model.Order.NumberOrder</dd>
-
-        <dt class="col-sm-2">Состав заказа</dt>
-        <dd class="col-sm-10">@Model.Order.OrderContains</dd>
-
-        <dt class="col-sm-2">Общая сумма</dt>
-        <dd class="col-sm-10">@Model.Order.TotalAmount.ToString("C")</dd>
-
-        <dt class="col-sm-2">Статус</dt>
-        <dd class="col-sm-10">@Model.Order.Status</dd>
-    </dl>
-
-    <form method="post">
-        <input type="hidden" asp-for="Order.Id" />
-        <button type="submit" class="btn btn-danger">Удалить</button>
-        <a asp-page="./Index" class="btn btn-secondary">Отмена</a>
-    </form>
-</div>  
