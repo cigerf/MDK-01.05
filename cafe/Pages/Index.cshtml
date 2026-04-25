@@ -1,10 +1,51 @@
 ﻿@page
-@model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Главная";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Доброе пожаловать в проект cafe</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-4">
+    <h1 class="display-5">☕ Cafe Manager</h1>
+    <p class="lead">Управление клиентами и заказами</p>
+    <hr class="my-3" />
 </div>
+
+<div class="row g-3 justify-content-center">
+    <!-- Карточка "Клиенты" -->
+    <div class="col-md-5 col-lg-4">
+        <div class="card shadow-sm border-0 text-center card-hover">
+            <div class="card-body py-4">
+                <div class="mb-2" style="font-size: 2.5rem;">👥</div>
+                <h4 class="card-title mb-2">Клиенты</h4>
+                <p class="card-text text-muted small mb-3">Просмотр и управление клиентами</p>
+                <a asp-page="/Clients/Index" class="btn btn-sm btn-primary px-3">
+                    Перейти →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка "Заказы" -->
+    <div class="col-md-5 col-lg-4">
+        <div class="card shadow-sm border-0 text-center card-hover">
+            <div class="card-body py-4">
+                <div class="mb-2" style="font-size: 2.5rem;">📦</div>
+                <h4 class="card-title mb-2">Заказы</h4>
+                <p class="card-text text-muted small mb-3">Управление заказами</p>
+                <a asp-page="/Orders/Index" class="btn btn-sm btn-success px-3">
+                    Перейти →
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card-hover {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+        }
+</style>

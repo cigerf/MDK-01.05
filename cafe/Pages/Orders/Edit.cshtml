@@ -1,0 +1,65 @@
+﻿@page
+@model cafe.Pages.Orders.EditModel
+@{
+    ViewData["Title"] = "Редактировать заказ";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-warning">
+                <h3 class="mb-0">✏️ Редактирование заказа</h3>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <input type="hidden" asp-for="Order.Id" />
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Order.Name" class="form-label fw-bold">Название заказа</label>
+                        <input asp-for="Order.Name" class="form-control" />
+                        <span asp-validation-for="Order.Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Order.NumberOrder" class="form-label fw-bold">Номер заказа</label>
+                        <input asp-for="Order.NumberOrder" class="form-control" />
+                        <span asp-validation-for="Order.NumberOrder" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Order.OrderContains" class="form-label fw-bold">Состав заказа</label>
+                        <textarea asp-for="Order.OrderContains" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Order.OrderContains" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Order.TotalAmount" class="form-label fw-bold">Общая сумма</label>
+                        <input asp-for="Order.TotalAmount" class="form-control" step="0.01" />
+                        <span asp-validation-for="Order.TotalAmount" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Order.Status" class="form-label fw-bold">Статус</label>
+                        <select asp-for="Order.Status" class="form-select">
+                            <option value="Ожидает">⏳ Ожидает</option>
+                            <option value="В обработке">🔄 В обработке</option>
+                            <option value="Выполнен">✅ Выполнен</option>
+                            <option value="Отменён">❌ Отменён</option>
+                        </select>
+                        <span asp-validation-for="Order.Status" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex gap-2 justify-content-end">
+                        <button type="submit" class="btn btn-primary">💾 Сохранить</button>
+                        <a asp-page="Index" class="btn btn-secondary">❌ Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
